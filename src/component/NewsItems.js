@@ -2,10 +2,14 @@ import React, { Component } from "react";
 
 export default class NewsItems extends Component {
   render() {
-    let { title, description, imageUrl, newsUrl } = this.props;
+    let { title, description, imageUrl, newsUrl, author, date, source } =
+      this.props;
     return (
       <div className="container my-3">
-        <div className="card" style={{ width: "18rem" }}>
+        <div className="card">
+          <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-warning">
+            {source}
+          </span>
           <img
             src={
               imageUrl
@@ -20,13 +24,18 @@ export default class NewsItems extends Component {
             <p className="card-text">
               {description ? description.slice(0, 80) : ""}...
             </p>
+            <p class="card-text">
+              <small class="text-muted">
+                By {author} on {date}
+              </small>
+            </p>
             <a
               href={newsUrl}
               target="_blank"
               className="btn btn-sm btn-primary"
               rel="noreferrer"
             >
-              Read More..
+              Read More
             </a>
           </div>
         </div>
