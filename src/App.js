@@ -4,20 +4,37 @@ import React, { Component } from "react";
 import Navbar from "./component/Navbar";
 import News from "./component/News";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoadingBar from "react-top-loading-bar";
 
 export default class App extends Component {
   pageSize = 20;
+  apiKey = process.env.REACT_APP_API_KEY;
+  state = {
+    progress: 0,
+  };
+
+  setProgress = (progress) => {
+    this.setState({ progress: progress });
+    // console.log("In app.js", this.apiKey);
+  };
   render() {
     return (
       <div>
         <Router>
           <Navbar />
+          <LoadingBar
+            color="#f11946"
+            // height={2}
+            progress={this.state.progress}
+          />
           <Routes>
             <Route
               exact
               path="/general"
               element={
                 <News
+                  apiKey={this.apiKey}
+                  setProgress={this.setProgress}
                   key=" general"
                   pageSize={this.pageSize}
                   country="in"
@@ -30,6 +47,8 @@ export default class App extends Component {
               path="/"
               element={
                 <News
+                  apiKey={this.apiKey}
+                  setProgress={this.setProgress}
                   key="general"
                   pageSize={this.pageSize}
                   country="in"
@@ -42,6 +61,8 @@ export default class App extends Component {
               path="/entertainment"
               element={
                 <News
+                  apiKey={this.apiKey}
+                  setProgress={this.setProgress}
                   key="entertainment "
                   pageSize={this.pageSize}
                   country="in"
@@ -54,6 +75,8 @@ export default class App extends Component {
               path="/business"
               element={
                 <News
+                  apiKey={this.apiKey}
+                  setProgress={this.setProgress}
                   key="business "
                   pageSize={this.pageSize}
                   country="in"
@@ -66,6 +89,8 @@ export default class App extends Component {
               path="/health"
               element={
                 <News
+                  apiKey={this.apiKey}
+                  setProgress={this.setProgress}
                   key="health"
                   pageSize={this.pageSize}
                   country="in"
@@ -78,6 +103,8 @@ export default class App extends Component {
               path="/science"
               element={
                 <News
+                  apiKey={this.apiKey}
+                  setProgress={this.setProgress}
                   key="science"
                   pageSize={this.pageSize}
                   country="in"
@@ -90,6 +117,8 @@ export default class App extends Component {
               path="/sports"
               element={
                 <News
+                  apiKey={this.apiKey}
+                  setProgress={this.setProgress}
                   key="sports"
                   pageSize={this.pageSize}
                   country="in"
@@ -102,6 +131,8 @@ export default class App extends Component {
               path="/technology"
               element={
                 <News
+                  apiKey={this.apiKey}
+                  setProgress={this.setProgress}
                   key="technology"
                   pageSize={this.pageSize}
                   country="in"

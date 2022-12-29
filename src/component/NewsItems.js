@@ -7,7 +7,7 @@ export default class NewsItems extends Component {
     return (
       <div className="container my-3">
         <div className="card">
-          <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-warning">
+          <span className="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-warning">
             {source}
           </span>
           <img
@@ -24,8 +24,8 @@ export default class NewsItems extends Component {
             <p className="card-text">
               {description ? description.slice(0, 80) : ""}...
             </p>
-            <p class="card-text">
-              <small class="text-muted">
+            <p className="card-text">
+              <small className="text-muted">
                 By {author} on {date}
               </small>
             </p>
